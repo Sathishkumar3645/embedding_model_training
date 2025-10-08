@@ -1,0 +1,36 @@
+model:
+  base_model: "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+  embedding_dim: 768
+  max_length: 512
+  
+training:
+  batch_size: 8
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 500
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  weight_decay: 0.01
+  
+dataset:
+  name: "sentence-transformers/all-nli"
+  max_train_samples: 20000
+  max_val_samples: 2000
+  
+loss:
+  margin: 0.3
+  temperature: 0.05
+  
+languages:
+  - en  # English
+  - de  # German
+  - fr  # French
+  - es  # Spanish
+  - it  # Italian
+  - pt  # Portuguese
+  - nl  # Dutch
+  - pl  # Polish
+  - ru  # Russian
+  - zh  # Chinese
+  - ja  # Japanese
+  - ar  # Arabic
